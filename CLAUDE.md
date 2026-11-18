@@ -31,3 +31,12 @@ Claude CodeとAI秘書FRIDAYとCanvaで、noteを半自動で運用する仕組�
 - 1タスク＝1ブランチ＝1PR。ブランチ名は `claude/<内容>` または `friday/<内容>`
 - PRの説明には「何を書いたか／根拠にした出典／未確認の点」を必ず書く
 - マージはユーザーが判断する。勝手にマージしない
+
+## 執筆フローとnihongo（2026-11-18 本採用）
+- 執筆の順番: Claude Codeが執筆 → nihongoスキルで推敲 → FRIDAYが事実確認 → ユーザーが最終確認・公開
+- nihongoスキル（AnIT012/nihongo、MITライセンス）は `.claude/skills/nihongo/` にプロジェクトローカルでインストール済み。未導入の環境では `npx skills add AnIT012/nihongo -a claude-code` で入れる
+- 推敲では数字・日付・固有名詞・事実関係を変えない。推量の文末を断定に書き換えて事実が変わる場合は、元の表現を残す
+- AI開示の記述や、STYLE.mdの persona に沿った表現は、AIの癖に見えても残すかどうかをルール優先で判断する
+- Lite（ALWAYS.md）は次の import で毎回読み込む
+
+@.claude/skills/nihongo/ALWAYS.md
